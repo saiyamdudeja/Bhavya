@@ -301,9 +301,10 @@
     </div>
   </div>
 
-  <audio id="bgMusic" loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg"/>
-  </audio>
+  <iframe id="scPlayer" 
+    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/officialspedupmusic/until-i-found-you-sped-up&color=%23e07060&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false"
+    style="display:none;" allow="autoplay">
+  </iframe>
 
   <script>
     const noMessages = [
@@ -322,10 +323,7 @@
     const noBtn = document.getElementById('noBtn');
     const counter = document.getElementById('counter');
 
-    document.addEventListener('click', () => {
-      const audio = document.getElementById('bgMusic');
-      if (audio.paused) audio.play().catch(() => {});
-    }, { once: true });
+    // SoundCloud player handles autoplay via iframe
 
     function moveNoButton() {
       const maxX = Math.min(window.innerWidth - noBtn.offsetWidth - 20, 300);
